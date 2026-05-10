@@ -1,0 +1,864 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pvw.one/schemas/archetype/service_pilotage/1.1.0",
+  "title": "Pilotage Service — Archetype Schema",
+  "description": "Defines the structure of any Pilotage Service instance in PVW.one. Version 1.0.0.",
+  "version": "1.0.0",
+  "archetype_id": "service_pilotage",
+  "archetype_category": "Mandatory Service",
+  "type": "object",
+  "required": [
+    "instance_metadata",
+    "identity",
+    "equipment",
+    "relations",
+    "carbon"
+  ],
+  "properties": {
+    "instance_metadata": {
+      "type": "object",
+      "required": [
+        "instance_id",
+        "archetype_ref",
+        "port_unlocode",
+        "size_tier",
+        "last_updated"
+      ],
+      "properties": {
+        "instance_id": {
+          "type": "string"
+        },
+        "instance_name": {
+          "type": "string"
+        },
+        "archetype_ref": {
+          "type": "string"
+        },
+        "port_unlocode": {
+          "type": "string"
+        },
+        "port_name": {
+          "type": "string"
+        },
+        "country_iso2": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 2
+        },
+        "size_tier": {
+          "type": "string",
+          "enum": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ]
+        },
+        "active_carbon_scenario": {
+          "type": "string",
+          "enum": [
+            "BAU",
+            "FuelEU+AFIR",
+            "Accelerated"
+          ]
+        },
+        "created": {
+          "type": "string"
+        },
+        "last_updated": {
+          "type": "string"
+        },
+        "schema_version": {
+          "type": "string"
+        }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "operator_legal_name": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Operator legal name",
+          "x_type": "string"
+        },
+        "operator_short_name": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Commercial name",
+          "x_type": "string"
+        },
+        "port_unlocode": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Port (UN/LOCODE)",
+          "x_type": "enum"
+        },
+        "port_name": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Port name",
+          "x_type": "string"
+        },
+        "country_iso2": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Country (ISO 3166-1 alpha-2)",
+          "x_type": "enum"
+        },
+        "legal_form": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Legal form",
+          "x_type": "enum"
+        },
+        "licence_type": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Licence type",
+          "x_type": "enum"
+        },
+        "licence_end_year": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Licence end year",
+          "x_unit": "year",
+          "x_type": "integer"
+        },
+        "year_founded": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Year founded",
+          "x_unit": "year",
+          "x_type": "integer"
+        },
+        "annual_pilotage_operations": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Annual pilotage operations",
+          "x_unit": "ops/year",
+          "x_type": "integer"
+        },
+        "number_of_pilots": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Number of licensed pilots",
+          "x_unit": "pilots",
+          "x_type": "integer"
+        },
+        "workforce_total_fte": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Total workforce (incl. boat crews + admin)",
+          "x_unit": "FTE",
+          "x_type": "integer"
+        },
+        "size_tier": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Size tier",
+          "x_type": "enum"
+        },
+        "isps_certified": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "ISPS code certification",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        },
+        "iso_9001": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "ISO 9001 quality",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        },
+        "service_24_7": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Service 24/7",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        }
+      }
+    },
+    "equipment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pilot_launches_qty": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Pilot launches",
+          "x_unit": "launches",
+          "x_type": "integer"
+        },
+        "launch_typical_length_m": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Typical launch length",
+          "x_unit": "m",
+          "x_type": "number"
+        },
+        "launch_typical_speed_kn": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Typical launch speed",
+          "x_unit": "kn",
+          "x_type": "integer"
+        },
+        "pilot_boarding_distance_nm": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Pilot boarding station distance",
+          "x_unit": "NM",
+          "x_type": "number"
+        },
+        "ppu_units_qty": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Pilot Portable Units (PPU)",
+          "x_unit": "units",
+          "x_type": "integer"
+        },
+        "vhf_radios_qty": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "VHF radios",
+          "x_unit": "units",
+          "x_type": "integer"
+        },
+        "control_room_24_7": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Control room 24/7 staffed",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        },
+        "avg_op_duration_min": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Average operation duration",
+          "x_unit": "min",
+          "x_type": "integer"
+        },
+        "avg_fuel_per_op_l": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Average launch fuel per op",
+          "x_unit": "L MGO",
+          "x_type": "integer"
+        }
+      }
+    },
+    "relations": {
+      "type": "object",
+      "description": "For each counterparty_type_id defined in the archetype, an object with actors and metadata.",
+      "additionalProperties": true
+    },
+    "carbon": {
+      "type": "object",
+      "required": [
+        "active_scenario",
+        "emissions"
+      ],
+      "properties": {
+        "active_scenario": {
+          "type": "string",
+          "enum": [
+            "BAU",
+            "FuelEU+AFIR",
+            "Accelerated"
+          ]
+        },
+        "emissions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "emission_source_id",
+              "scope",
+              "scenario",
+              "year",
+              "value_tCO2e",
+              "fidelity"
+            ],
+            "properties": {
+              "emission_source_id": {
+                "type": "string"
+              },
+              "scope": {
+                "type": "string",
+                "enum": [
+                  "scope_1",
+                  "scope_2",
+                  "scope_1+2",
+                  "scope_3"
+                ]
+              },
+              "scenario": {
+                "type": "string",
+                "enum": [
+                  "BAU",
+                  "FuelEU+AFIR",
+                  "Accelerated"
+                ]
+              },
+              "year": {
+                "type": "integer",
+                "minimum": 2020,
+                "maximum": 2050
+              },
+              "value_tCO2e": {
+                "type": "number",
+                "minimum": 0
+              },
+              "fidelity": {
+                "type": "string",
+                "enum": [
+                  "L0",
+                  "L1",
+                  "L2"
+                ]
+              },
+              "source": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "x_pvw_fidelity_levels": {
+    "L0": "Default — inherited from archetype S/M/L. No real data.",
+    "L1": "Public refined — verified from public sources.",
+    "L2": "Operator twin — provided by the operator under collaboration."
+  }
+}

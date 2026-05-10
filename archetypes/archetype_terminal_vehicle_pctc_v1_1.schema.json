@@ -1,0 +1,1227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pvw.one/schemas/archetype/terminal_vehicle_pctc/1.1.0",
+  "title": "Vehicle Terminal (PCTC) — Archetype Schema",
+  "description": "Defines the structure of any Vehicle Terminal (PCTC) instance in PVW.one. Version 1.0.0.",
+  "version": "1.0.0",
+  "archetype_id": "terminal_vehicle_pctc",
+  "archetype_category": "Terminal",
+  "type": "object",
+  "required": [
+    "instance_metadata",
+    "identity",
+    "equipment",
+    "relations",
+    "carbon"
+  ],
+  "properties": {
+    "instance_metadata": {
+      "type": "object",
+      "required": [
+        "instance_id",
+        "archetype_ref",
+        "port_unlocode",
+        "size_tier",
+        "last_updated"
+      ],
+      "properties": {
+        "instance_id": {
+          "type": "string"
+        },
+        "instance_name": {
+          "type": "string"
+        },
+        "archetype_ref": {
+          "type": "string"
+        },
+        "port_unlocode": {
+          "type": "string"
+        },
+        "port_name": {
+          "type": "string"
+        },
+        "country_iso2": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 2
+        },
+        "size_tier": {
+          "type": "string",
+          "enum": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ]
+        },
+        "active_carbon_scenario": {
+          "type": "string",
+          "enum": [
+            "BAU",
+            "FuelEU+AFIR",
+            "Accelerated"
+          ]
+        },
+        "created": {
+          "type": "string"
+        },
+        "last_updated": {
+          "type": "string"
+        },
+        "schema_version": {
+          "type": "string"
+        }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "operator_legal_name": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Operator legal name",
+          "x_type": "string"
+        },
+        "operator_short_name": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Operator commercial name",
+          "x_type": "string"
+        },
+        "port_unlocode": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Port (UN/LOCODE)",
+          "x_type": "enum"
+        },
+        "port_name": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Port name",
+          "x_type": "string"
+        },
+        "country_iso2": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Country (ISO 3166-1 alpha-2)",
+          "x_type": "enum"
+        },
+        "location_lat": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Latitude (terminal centroid)",
+          "x_unit": "deg",
+          "x_type": "number"
+        },
+        "location_lon": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Longitude (terminal centroid)",
+          "x_unit": "deg",
+          "x_type": "number"
+        },
+        "year_operations_started": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Year operations started",
+          "x_unit": "year",
+          "x_type": "integer"
+        },
+        "concession_holder": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Concession holder",
+          "x_type": "string"
+        },
+        "concession_end_year": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Concession end year",
+          "x_unit": "year",
+          "x_type": "integer"
+        },
+        "parent_group": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Parent group / shareholders",
+          "x_type": "string"
+        },
+        "ownership_pct": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Ownership %",
+          "x_unit": "%",
+          "x_type": "number"
+        },
+        "annual_throughput": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Annual throughput",
+          "x_unit": "vehicles/year",
+          "x_type": "integer"
+        },
+        "size_tier": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Size tier (declarative)",
+          "x_type": "enum"
+        },
+        "isps_certified": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "ISPS code certification",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        },
+        "iso_9001": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "ISO 9001 (quality)",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        },
+        "iso_14001": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "ISO 14001 (environment)",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        },
+        "iso_45001": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "ISO 45001 (occupational H&S)",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        },
+        "aeo_status": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "AEO certification",
+          "x_type": "enum"
+        },
+        "total_area_m2": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Total terminal area",
+          "x_unit": "m²",
+          "x_type": "integer"
+        },
+        "workforce_total_fte": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Total workforce",
+          "x_unit": "FTE",
+          "x_type": "integer"
+        },
+        "yard_capacity_units": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Yard parking capacity (vehicles)",
+          "x_unit": "vehicles",
+          "x_type": "integer"
+        },
+        "yard_area_m2": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Yard area",
+          "x_unit": "m²",
+          "x_type": "integer"
+        },
+        "pdi_capacity_units_yr": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Pre-Delivery Inspection capacity",
+          "x_unit": "vehicles/year",
+          "x_type": "integer"
+        }
+      }
+    },
+    "equipment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "quay_length_m": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Quay length",
+          "x_unit": "m",
+          "x_type": "integer"
+        },
+        "quay_max_draft_m": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Maximum quay draft",
+          "x_unit": "m",
+          "x_type": "number"
+        },
+        "number_of_berths": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Number of berths",
+          "x_unit": "berths",
+          "x_type": "integer"
+        },
+        "max_loa_m": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Maximum PCTC LOA",
+          "x_unit": "m",
+          "x_type": "integer"
+        },
+        "number_of_ramps": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Number of ramps",
+          "x_unit": "ramps",
+          "x_type": "integer"
+        },
+        "yard_levels": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Yard parking levels",
+          "x_unit": "levels",
+          "x_type": "integer"
+        },
+        "driver_pool_qty": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Driver pool",
+          "x_unit": "drivers",
+          "x_type": "integer"
+        },
+        "on_dock_rail": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "On-dock rail siding",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        },
+        "rail_tracks_qty": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Rail tracks",
+          "x_unit": "tracks",
+          "x_type": "integer"
+        },
+        "rail_track_length_m": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Useful rail track length",
+          "x_unit": "m",
+          "x_type": "integer"
+        },
+        "car_carrier_truck_bays": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Car-carrier truck loading bays",
+          "x_unit": "bays",
+          "x_type": "integer"
+        },
+        "ops_hours_per_day": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Operating hours per day",
+          "x_unit": "h",
+          "x_type": "integer"
+        },
+        "modal_split_truck_pct": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Modal split — truck",
+          "x_unit": "%",
+          "x_type": "number"
+        },
+        "modal_split_rail_pct": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Modal split — rail",
+          "x_unit": "%",
+          "x_type": "number"
+        }
+      }
+    },
+    "relations": {
+      "type": "object",
+      "description": "For each counterparty_type_id defined in the archetype, an object with actors and metadata.",
+      "additionalProperties": true
+    },
+    "carbon": {
+      "type": "object",
+      "required": [
+        "active_scenario",
+        "emissions"
+      ],
+      "properties": {
+        "active_scenario": {
+          "type": "string",
+          "enum": [
+            "BAU",
+            "FuelEU+AFIR",
+            "Accelerated"
+          ]
+        },
+        "emissions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "emission_source_id",
+              "scope",
+              "scenario",
+              "year",
+              "value_tCO2e",
+              "fidelity"
+            ],
+            "properties": {
+              "emission_source_id": {
+                "type": "string"
+              },
+              "scope": {
+                "type": "string",
+                "enum": [
+                  "scope_1",
+                  "scope_2",
+                  "scope_1+2",
+                  "scope_3"
+                ]
+              },
+              "scenario": {
+                "type": "string",
+                "enum": [
+                  "BAU",
+                  "FuelEU+AFIR",
+                  "Accelerated"
+                ]
+              },
+              "year": {
+                "type": "integer",
+                "minimum": 2020,
+                "maximum": 2050
+              },
+              "value_tCO2e": {
+                "type": "number",
+                "minimum": 0
+              },
+              "fidelity": {
+                "type": "string",
+                "enum": [
+                  "L0",
+                  "L1",
+                  "L2"
+                ]
+              },
+              "source": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "x_pvw_fidelity_levels": {
+    "L0": "Default — inherited from archetype S/M/L. No real data.",
+    "L1": "Public refined — verified from public sources.",
+    "L2": "Operator twin — provided by the operator under collaboration."
+  }
+}

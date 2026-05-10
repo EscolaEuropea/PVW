@@ -1,0 +1,1116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pvw.one/schemas/archetype/service_marpol_reception/1.1.0",
+  "title": "Port Reception Facilities (MARPOL) — Archetype Schema",
+  "description": "Defines the structure of any Port Reception Facilities (MARPOL) instance in PVW.one. Version 1.0.0.",
+  "version": "1.0.0",
+  "archetype_id": "service_marpol_reception",
+  "archetype_category": "Mandatory Service",
+  "type": "object",
+  "required": [
+    "instance_metadata",
+    "identity",
+    "equipment",
+    "relations",
+    "carbon"
+  ],
+  "properties": {
+    "instance_metadata": {
+      "type": "object",
+      "required": [
+        "instance_id",
+        "archetype_ref",
+        "port_unlocode",
+        "size_tier",
+        "last_updated"
+      ],
+      "properties": {
+        "instance_id": {
+          "type": "string"
+        },
+        "instance_name": {
+          "type": "string"
+        },
+        "archetype_ref": {
+          "type": "string"
+        },
+        "port_unlocode": {
+          "type": "string"
+        },
+        "port_name": {
+          "type": "string"
+        },
+        "country_iso2": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 2
+        },
+        "size_tier": {
+          "type": "string",
+          "enum": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ]
+        },
+        "active_carbon_scenario": {
+          "type": "string",
+          "enum": [
+            "BAU",
+            "FuelEU+AFIR",
+            "Accelerated"
+          ]
+        },
+        "created": {
+          "type": "string"
+        },
+        "last_updated": {
+          "type": "string"
+        },
+        "schema_version": {
+          "type": "string"
+        }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "operator_legal_name": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Operator legal name",
+          "x_type": "string"
+        },
+        "operator_short_name": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Commercial name",
+          "x_type": "string"
+        },
+        "port_unlocode": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Port (UN/LOCODE)",
+          "x_type": "enum"
+        },
+        "port_name": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Port name",
+          "x_type": "string"
+        },
+        "country_iso2": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Country (ISO 3166-1 alpha-2)",
+          "x_type": "enum"
+        },
+        "parent_group": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Parent group",
+          "x_type": "string"
+        },
+        "first_concession_year": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Year of first concession",
+          "x_unit": "year",
+          "x_type": "integer"
+        },
+        "concession_end_year": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Concession end year",
+          "x_unit": "year",
+          "x_type": "integer"
+        },
+        "marpol_annexes_covered": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "MARPOL annexes covered",
+          "x_type": "string"
+        },
+        "hazardous_waste_licensed": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Hazardous waste licence (national)",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        },
+        "annual_marpol_received_t": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Annual MARPOL waste received",
+          "x_unit": "t/year",
+          "x_type": "integer"
+        },
+        "annual_ship_deliveries": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Annual ship-deliveries",
+          "x_unit": "deliveries/year",
+          "x_type": "integer"
+        },
+        "workforce_total_fte": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Total workforce",
+          "x_unit": "FTE",
+          "x_type": "integer"
+        },
+        "size_tier": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Size tier",
+          "x_type": "enum"
+        },
+        "isps_certified": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "ISPS code certification",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        },
+        "iso_14001": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "ISO 14001",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        },
+        "iso_9001": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "ISO 9001",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        },
+        "plant_area_m2": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Treatment plant area",
+          "x_unit": "m²",
+          "x_type": "integer"
+        },
+        "treatment_capacity_t_yr": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Annual treatment capacity",
+          "x_unit": "t/year",
+          "x_type": "integer"
+        },
+        "storage_capacity_oily_m3": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Storage capacity — oily liquids",
+          "x_unit": "m³",
+          "x_type": "integer"
+        }
+      }
+    },
+    "equipment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "marpol_i_ii_barge_qty": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "MARPOL I/II collection barges (oily)",
+          "x_unit": "barges",
+          "x_type": "integer"
+        },
+        "marpol_v_barge_qty": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "MARPOL V collection barges (garbage)",
+          "x_unit": "barges",
+          "x_type": "integer"
+        },
+        "largest_barge_capacity_m3": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Largest barge capacity",
+          "x_unit": "m³",
+          "x_type": "integer"
+        },
+        "tank_trucks_adr_qty": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Tank trucks (ADR)",
+          "x_unit": "trucks",
+          "x_type": "integer"
+        },
+        "box_trucks_qty": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Box / garbage trucks",
+          "x_unit": "trucks",
+          "x_type": "integer"
+        },
+        "forklifts_cranes_qty": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Forklifts / yard cranes",
+          "x_unit": "machines",
+          "x_type": "integer"
+        },
+        "hydrocarbon_line_capacity_t_yr": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Hydrocarbon recovery line capacity",
+          "x_unit": "t/year",
+          "x_type": "integer"
+        },
+        "water_line_capacity_t_yr": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Industrial water line capacity",
+          "x_unit": "t/year",
+          "x_type": "integer"
+        },
+        "solid_waste_line_capacity_t_yr": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Solid waste line capacity",
+          "x_unit": "t/year",
+          "x_type": "integer"
+        },
+        "hazardous_recovery_line_capacity_t_yr": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Hazardous recovery line",
+          "x_unit": "t/year",
+          "x_type": "integer"
+        },
+        "wwtp_on_site": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "On-site WWTP (industrial water treatment)",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        },
+        "laboratory_on_site": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Laboratory (waste characterisation)",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        },
+        "annual_recovered_ifo_t": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Annual recovered IFO 380",
+          "x_unit": "t/year",
+          "x_type": "integer"
+        },
+        "annual_recycled_materials_t": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Annual recycled materials",
+          "x_unit": "t/year",
+          "x_type": "integer"
+        }
+      }
+    },
+    "relations": {
+      "type": "object",
+      "description": "For each counterparty_type_id defined in the archetype, an object with actors and metadata.",
+      "additionalProperties": true
+    },
+    "carbon": {
+      "type": "object",
+      "required": [
+        "active_scenario",
+        "emissions"
+      ],
+      "properties": {
+        "active_scenario": {
+          "type": "string",
+          "enum": [
+            "BAU",
+            "FuelEU+AFIR",
+            "Accelerated"
+          ]
+        },
+        "emissions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "emission_source_id",
+              "scope",
+              "scenario",
+              "year",
+              "value_tCO2e",
+              "fidelity"
+            ],
+            "properties": {
+              "emission_source_id": {
+                "type": "string"
+              },
+              "scope": {
+                "type": "string",
+                "enum": [
+                  "scope_1",
+                  "scope_2",
+                  "scope_1+2",
+                  "scope_3"
+                ]
+              },
+              "scenario": {
+                "type": "string",
+                "enum": [
+                  "BAU",
+                  "FuelEU+AFIR",
+                  "Accelerated"
+                ]
+              },
+              "year": {
+                "type": "integer",
+                "minimum": 2020,
+                "maximum": 2050
+              },
+              "value_tCO2e": {
+                "type": "number",
+                "minimum": 0
+              },
+              "fidelity": {
+                "type": "string",
+                "enum": [
+                  "L0",
+                  "L1",
+                  "L2"
+                ]
+              },
+              "source": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "x_pvw_fidelity_levels": {
+    "L0": "Default — inherited from archetype S/M/L. No real data.",
+    "L1": "Public refined — verified from public sources.",
+    "L2": "Operator twin — provided by the operator under collaboration."
+  }
+}
