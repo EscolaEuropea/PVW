@@ -1,0 +1,807 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pvw.one/schemas/archetype/service_mooring/1.0.0",
+  "title": "Mooring Service — Archetype Schema",
+  "description": "Defines the structure of any Mooring Service instance in PVW.one. Version 1.0.0.",
+  "version": "1.0.0",
+  "archetype_id": "service_mooring",
+  "archetype_category": "Mandatory Service",
+  "type": "object",
+  "required": [
+    "instance_metadata",
+    "identity",
+    "equipment",
+    "relations",
+    "carbon"
+  ],
+  "properties": {
+    "instance_metadata": {
+      "type": "object",
+      "required": [
+        "instance_id",
+        "archetype_ref",
+        "port_unlocode",
+        "size_tier",
+        "last_updated"
+      ],
+      "properties": {
+        "instance_id": {
+          "type": "string"
+        },
+        "instance_name": {
+          "type": "string"
+        },
+        "archetype_ref": {
+          "type": "string"
+        },
+        "port_unlocode": {
+          "type": "string"
+        },
+        "port_name": {
+          "type": "string"
+        },
+        "country_iso2": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 2
+        },
+        "size_tier": {
+          "type": "string",
+          "enum": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        "active_carbon_scenario": {
+          "type": "string",
+          "enum": [
+            "BAU",
+            "FuelEU+AFIR",
+            "Accelerated"
+          ]
+        },
+        "created": {
+          "type": "string"
+        },
+        "last_updated": {
+          "type": "string"
+        },
+        "schema_version": {
+          "type": "string"
+        }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "operator_legal_name": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Operator legal name",
+          "x_type": "string"
+        },
+        "operator_short_name": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Commercial name",
+          "x_type": "string"
+        },
+        "port_unlocode": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Port (UN/LOCODE)",
+          "x_type": "enum"
+        },
+        "port_name": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Port name",
+          "x_type": "string"
+        },
+        "country_iso2": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Country (ISO 3166-1 alpha-2)",
+          "x_type": "enum"
+        },
+        "legal_form": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Legal form",
+          "x_type": "enum"
+        },
+        "licence_type": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Licence type",
+          "x_type": "enum"
+        },
+        "licence_end_year": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Licence end year",
+          "x_unit": "year",
+          "x_type": "integer"
+        },
+        "annual_mooring_operations": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Annual mooring operations",
+          "x_unit": "ops/year",
+          "x_type": "integer"
+        },
+        "number_of_mooring_men": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Number of mooring men",
+          "x_unit": "operators",
+          "x_type": "integer"
+        },
+        "workforce_total_fte": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Total workforce",
+          "x_unit": "FTE",
+          "x_type": "integer"
+        },
+        "size_tier": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Size tier",
+          "x_type": "enum"
+        },
+        "isps_certified": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "ISPS code certification",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        },
+        "iso_45001": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "ISO 45001 (occupational H&S)",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        },
+        "service_24_7": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Service 24/7",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        }
+      }
+    },
+    "equipment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mooring_launches_qty": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Mooring launches (boteros)",
+          "x_unit": "launches",
+          "x_type": "integer"
+        },
+        "foremen_qty": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Foremen / shift supervisors",
+          "x_unit": "people",
+          "x_type": "integer"
+        },
+        "avg_crew_per_op": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Average crew size per operation",
+          "x_unit": "people",
+          "x_type": "integer"
+        },
+        "avg_op_duration_min": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Average operation duration",
+          "x_unit": "min",
+          "x_type": "integer"
+        },
+        "avg_fuel_per_op_l": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Launch fuel per operation",
+          "x_unit": "L",
+          "x_type": "integer"
+        },
+        "light_vehicles_qty": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Light vehicles (in-port crew transport)",
+          "x_unit": "vehicles",
+          "x_type": "integer"
+        },
+        "heaving_lines_total": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Heaving lines (operational + spare)",
+          "x_unit": "lines",
+          "x_type": "integer"
+        },
+        "vhf_radios_qty": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "VHF radios",
+          "x_unit": "units",
+          "x_type": "integer"
+        }
+      }
+    },
+    "relations": {
+      "type": "object",
+      "description": "For each counterparty_type_id defined in the archetype, an object with actors and metadata.",
+      "additionalProperties": true
+    },
+    "carbon": {
+      "type": "object",
+      "required": [
+        "active_scenario",
+        "emissions"
+      ],
+      "properties": {
+        "active_scenario": {
+          "type": "string",
+          "enum": [
+            "BAU",
+            "FuelEU+AFIR",
+            "Accelerated"
+          ]
+        },
+        "emissions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "emission_source_id",
+              "scope",
+              "scenario",
+              "year",
+              "value_tCO2e",
+              "fidelity"
+            ],
+            "properties": {
+              "emission_source_id": {
+                "type": "string"
+              },
+              "scope": {
+                "type": "string",
+                "enum": [
+                  "scope_1",
+                  "scope_2",
+                  "scope_1+2",
+                  "scope_3"
+                ]
+              },
+              "scenario": {
+                "type": "string",
+                "enum": [
+                  "BAU",
+                  "FuelEU+AFIR",
+                  "Accelerated"
+                ]
+              },
+              "year": {
+                "type": "integer",
+                "minimum": 2020,
+                "maximum": 2050
+              },
+              "value_tCO2e": {
+                "type": "number",
+                "minimum": 0
+              },
+              "fidelity": {
+                "type": "string",
+                "enum": [
+                  "L0",
+                  "L1",
+                  "L2"
+                ]
+              },
+              "source": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "x_pvw_fidelity_levels": {
+    "L0": "Default — inherited from archetype S/M/L. No real data.",
+    "L1": "Public refined — verified from public sources.",
+    "L2": "Operator twin — provided by the operator under collaboration."
+  }
+}

@@ -1,0 +1,1250 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pvw.one/schemas/archetype/hub_multi_energy_bunker/1.0.0",
+  "title": "Multi-Energy Bunker Hub — Archetype Schema",
+  "description": "Defines the structure of any Multi-Energy Bunker Hub instance in PVW.one. Version 1.0.0.",
+  "version": "1.0.0",
+  "archetype_id": "hub_multi_energy_bunker",
+  "archetype_category": "Energy Hub",
+  "type": "object",
+  "required": [
+    "instance_metadata",
+    "identity",
+    "equipment",
+    "relations",
+    "carbon"
+  ],
+  "properties": {
+    "instance_metadata": {
+      "type": "object",
+      "required": [
+        "instance_id",
+        "archetype_ref",
+        "port_unlocode",
+        "size_tier",
+        "last_updated"
+      ],
+      "properties": {
+        "instance_id": {
+          "type": "string"
+        },
+        "instance_name": {
+          "type": "string"
+        },
+        "archetype_ref": {
+          "type": "string"
+        },
+        "port_unlocode": {
+          "type": "string"
+        },
+        "port_name": {
+          "type": "string"
+        },
+        "country_iso2": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 2
+        },
+        "size_tier": {
+          "type": "string",
+          "enum": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        "active_carbon_scenario": {
+          "type": "string",
+          "enum": [
+            "BAU",
+            "FuelEU+AFIR",
+            "Accelerated"
+          ]
+        },
+        "created": {
+          "type": "string"
+        },
+        "last_updated": {
+          "type": "string"
+        },
+        "schema_version": {
+          "type": "string"
+        }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "operator_legal_name": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Operator legal name",
+          "x_type": "string"
+        },
+        "operator_short_name": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Operator commercial name",
+          "x_type": "string"
+        },
+        "port_unlocode": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Port (UN/LOCODE)",
+          "x_type": "enum"
+        },
+        "port_name": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Port name",
+          "x_type": "string"
+        },
+        "country_iso2": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Country (ISO 3166-1 alpha-2)",
+          "x_type": "enum"
+        },
+        "location_lat": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Latitude (terminal centroid)",
+          "x_unit": "deg",
+          "x_type": "number"
+        },
+        "location_lon": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Longitude (terminal centroid)",
+          "x_unit": "deg",
+          "x_type": "number"
+        },
+        "year_operations_started": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Year operations started",
+          "x_unit": "year",
+          "x_type": "integer"
+        },
+        "concession_holder": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Concession holder",
+          "x_type": "string"
+        },
+        "concession_end_year": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Concession end year",
+          "x_unit": "year",
+          "x_type": "integer"
+        },
+        "parent_group": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Parent group / shareholders",
+          "x_type": "string"
+        },
+        "ownership_pct": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Ownership %",
+          "x_unit": "%",
+          "x_type": "number"
+        },
+        "annual_throughput": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Annual throughput",
+          "x_unit": "t/year bunkering",
+          "x_type": "integer"
+        },
+        "size_tier": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Size tier (declarative)",
+          "x_type": "enum"
+        },
+        "isps_certified": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "ISPS code certification",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        },
+        "iso_9001": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "ISO 9001 (quality)",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        },
+        "iso_14001": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "ISO 14001 (environment)",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        },
+        "iso_45001": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "ISO 45001 (occupational H&S)",
+          "x_unit": "bool",
+          "x_type": "boolean"
+        },
+        "aeo_status": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "AEO certification",
+          "x_type": "enum"
+        },
+        "total_area_m2": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Total terminal area",
+          "x_unit": "m²",
+          "x_type": "integer"
+        },
+        "workforce_total_fte": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Total workforce",
+          "x_unit": "FTE",
+          "x_type": "integer"
+        },
+        "seveso_classification": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Seveso classification",
+          "x_type": "enum"
+        },
+        "marine_fuels_handled": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Marine fuels handled",
+          "x_type": "enum"
+        },
+        "land_station_types": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Land station types operated",
+          "x_type": "enum"
+        },
+        "storage_capacity_total_m3": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Total fuel storage capacity",
+          "x_unit": "m³",
+          "x_type": "integer"
+        }
+      }
+    },
+    "equipment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "barge_berth_qty": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Barge berths (own infrastructure)",
+          "x_unit": "berths",
+          "x_type": "integer"
+        },
+        "barge_berth_length_m": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Barge berth length",
+          "x_unit": "m",
+          "x_type": "integer"
+        },
+        "cryogenic_loading_arms_qty": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Cryogenic loading arms (LNG/bio-LNG)",
+          "x_unit": "arms",
+          "x_type": "integer"
+        },
+        "liquid_loading_arms_qty": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Liquid loading arms (IFO/MGO/biofuel)",
+          "x_unit": "arms",
+          "x_type": "integer"
+        },
+        "annual_barge_loadings": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Annual barge loadings",
+          "x_unit": "loadings/year",
+          "x_type": "integer"
+        },
+        "tts_truck_loading_bays": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "TtS truck loading bays",
+          "x_unit": "bays",
+          "x_type": "integer"
+        },
+        "land_petrol_diesel_dispensers": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Land — petrol/diesel dispensers",
+          "x_unit": "dispensers",
+          "x_type": "integer"
+        },
+        "land_cng_dispensers": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Land — CNG dispensers",
+          "x_unit": "dispensers",
+          "x_type": "integer"
+        },
+        "land_lng_dispensers": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Land — LNG dispensers (truck)",
+          "x_unit": "dispensers",
+          "x_type": "integer"
+        },
+        "land_h2_dispensers_350bar": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Land — H2 350 bar dispensers (heavy)",
+          "x_unit": "dispensers",
+          "x_type": "integer"
+        },
+        "land_h2_dispensers_700bar": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Land — H2 700 bar dispensers (light)",
+          "x_unit": "dispensers",
+          "x_type": "integer"
+        },
+        "land_ev_chargers_dc_fast": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Land — EV DC fast chargers (CCS)",
+          "x_unit": "stations",
+          "x_type": "integer"
+        },
+        "land_ev_chargers_mcs": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Land — EV Megawatt Chargers (MCS)",
+          "x_unit": "stations",
+          "x_type": "integer"
+        },
+        "alternative_fuels_status": {
+          "type": "object",
+          "required": [
+            "value",
+            "fidelity"
+          ],
+          "properties": {
+            "value": {},
+            "fidelity": {
+              "type": "string",
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "last_updated": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Future fuels infrastructure",
+          "x_type": "string"
+        }
+      }
+    },
+    "relations": {
+      "type": "object",
+      "description": "For each counterparty_type_id defined in the archetype, an object with actors and metadata.",
+      "additionalProperties": true
+    },
+    "carbon": {
+      "type": "object",
+      "required": [
+        "active_scenario",
+        "emissions"
+      ],
+      "properties": {
+        "active_scenario": {
+          "type": "string",
+          "enum": [
+            "BAU",
+            "FuelEU+AFIR",
+            "Accelerated"
+          ]
+        },
+        "emissions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "emission_source_id",
+              "scope",
+              "scenario",
+              "year",
+              "value_tCO2e",
+              "fidelity"
+            ],
+            "properties": {
+              "emission_source_id": {
+                "type": "string"
+              },
+              "scope": {
+                "type": "string",
+                "enum": [
+                  "scope_1",
+                  "scope_2",
+                  "scope_1+2",
+                  "scope_3"
+                ]
+              },
+              "scenario": {
+                "type": "string",
+                "enum": [
+                  "BAU",
+                  "FuelEU+AFIR",
+                  "Accelerated"
+                ]
+              },
+              "year": {
+                "type": "integer",
+                "minimum": 2020,
+                "maximum": 2050
+              },
+              "value_tCO2e": {
+                "type": "number",
+                "minimum": 0
+              },
+              "fidelity": {
+                "type": "string",
+                "enum": [
+                  "L0",
+                  "L1",
+                  "L2"
+                ]
+              },
+              "source": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "x_pvw_fidelity_levels": {
+    "L0": "Default — inherited from archetype S/M/L. No real data.",
+    "L1": "Public refined — verified from public sources.",
+    "L2": "Operator twin — provided by the operator under collaboration."
+  }
+}
